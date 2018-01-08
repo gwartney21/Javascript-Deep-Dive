@@ -89,7 +89,8 @@ class Bird {
 }
 
 let set = new Bird();
-
+//This will bind the this value to the new empty 
+//Object instead of the constructor value on the prototype
 Bird.changeColor.call(set,'blue');
 console.log(set.color);
 
