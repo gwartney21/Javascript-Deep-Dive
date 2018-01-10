@@ -85,6 +85,14 @@ class Bird {
   constructor({ color = 'red' } = {}) {
     this.color = color;
   }
+
+  set setnewcolor(color){
+  	this.color = color;
+  };
+
+  get getnewcolor(){
+  	return this.color;
+  }
   
 }
 
@@ -92,5 +100,7 @@ let set = new Bird();
 //This will bind the this value to the new empty 
 //Object instead of the constructor value on the prototype
 Bird.changeColor.call(set,'blue');
+set.setnewcolor = "greeen";
+console.log(set.getnewcolor);
 console.log(set.color);
 
