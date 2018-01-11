@@ -1,5 +1,9 @@
 'use strict';
-
+/*
+	Example of using es6 classes with inhertiance
+	the person class will extend the student class
+	to be able to use methods from the person constructor.
+*/
 class Person {
   dance(){
     const dances = [
@@ -34,8 +38,8 @@ class stuedent extends Person {
     ];
      
   }
- 
 	constructor({name,age,intrestLevel = 5}  = {}){
+    
     super({name,age});
 		this.name = name;
 		this.age = age;
@@ -48,8 +52,12 @@ let stevenJ = new Person({ name: 'Steven', age: 22 });
 stevenJ.dance();
 
 
-///TESTING OUT STATIC METHODS 
 
+/*
+This is a way of using a static method
+With out the need of instances
+This can be used to be more of a utitlity function
+*/
 
 class StaticMethodCall {
   
@@ -72,10 +80,14 @@ class StaticMethodCall {
 
 console.log(StaticMethodCall.anotherStaticMethod("alex"));
 
-//tESTING OUT STATIC A DIFFRENT WAYS OF USING STATIC METHODS WITH
-//USING INSTANCES
+/*
+	Use static methods with class instances
+	instead of acessing a static method directly from the
+	constructor. It will acess it on the new empty object.
+	This example aslo includes the use of getters and setters.
+*/
 
-//jshint esnext:true
+
 class Bird {
   static changeColor(bcolor) {
     this.color = color;
@@ -97,10 +109,16 @@ class Bird {
 }
 
 let set = new Bird();
-//This will bind the this value to the new empty 
-//Object instead of the constructor value on the prototype
+
+/*
+Object instead of the constructor value on the prototype
+This will bind the this value to the new empty 
+*/
+
 Bird.changeColor.call(set,'blue');
+
 set.setnewcolor = "greeen";
+
 console.log(set.getnewcolor);
 console.log(set.color);
 
